@@ -1,12 +1,14 @@
-version: "3.9"
 services:
-    test:
-      image: "exercise-7"
-      volumes:
-        - .:/app
-      command: python3 -m pytest
-    run:
-      image: "exercise-7"
-      volumes:
-        - .:/app
-      command: /spark/bin/spark-submit main.py
+  run:
+    image: exercise-7 # Tên image đã build
+    container_name: ex7_pyspark_run
+    command: python main.py
+    volumes:
+      # Mount thư mục hiện tại (Exercise-7) vào /app
+      - .:/app
+      # Mount thư mục data chứa file zip
+      - ./data:/app/data:ro # Chỉ cần đọc
+    working_dir: /app
+    # Tăng bộ nhớ nếu cần cho Spark
+    # environment:
+    #   - SPARK_DRIVER_MEMORY=3g

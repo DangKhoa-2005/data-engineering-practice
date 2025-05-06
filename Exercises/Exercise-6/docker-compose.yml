@@ -1,12 +1,16 @@
-version: "3.9"
 services:
-    test:
-      image: "exercise-6"
-      volumes:
-        - .:/app
-      command: python3 -m pytest
-    run:
-      image: "exercise-6"
-      volumes:
-        - .:/app
-      command: /spark/bin/spark-submit main.py
+  run:
+    image: exercise-6 # Tên image đã build
+    container_name: ex6_pyspark_run
+    command: python main.py # Lệnh chạy script PySpark
+    volumes:
+      # Mount thư mục hiện tại (Exercise-6) vào /app
+      - .:/app
+      # Mount thư mục data chứa file zip
+      - ./data:/app/data:ro # Chỉ cần đọc (read-only)
+      # Mount thư mục reports để lấy kết quả ra ngoài
+      - ./reports:/app/reports:rw
+    working_dir: /app
+    # Cấu hình biến môi trường cho PySpark (tùy chọn, thường tự động)
+    # environment:
+    #   - SPARK_MASTER=local[*] # Chạy Spark ở chế độ local

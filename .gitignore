@@ -1,3 +1,22 @@
-*.idea*
-*.DS_Store*
-*postgres-data*
+# Ignore Spark/Hadoop output directories
+reports/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore specific OS generated files (like from Windows)
+*:Zone.Identifier
+
+# Ignore specific generated files if needed (e.g., crc files)
+*.crc
+_SUCCESS
+
+# Ignore environment files (like .env) - usually shouldn't be committed
+.env
+
+# Ignore data files if they are large or generated outputs (Optional for this lab, check if needed)
+# Exercises/Exercise-4/data/*.csv
+# *.zip # Be careful, this ignores all zip files!
+
+# Add other patterns as needed

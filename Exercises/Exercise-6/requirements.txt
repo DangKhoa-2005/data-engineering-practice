@@ -1,2 +1,2 @@
-pytest
-pyspark
+pyspark>=3.4.0 # Sử dụng phiên bản PySpark tương đối mới
+pandas # <<< THÊM DÒNG NÀY
