@@ -1,3 +1,6 @@
+Lab8 
+![alt text](image-7.png)
+![alt text](image-8.png)
 Lab9 bài 1
 ![alt text](image.png)
 Lab9 bài 2
